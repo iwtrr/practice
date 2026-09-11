@@ -1,3 +1,5 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/150367
+
 class Solution {
     public int[] solution(long[] numbers) {
         int[] answer = new int[numbers.length];
