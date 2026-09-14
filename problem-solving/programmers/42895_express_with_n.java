@@ -36,9 +36,3 @@ class Solution {
         return -1;
     }
 }
-
-public class Solve {
-    public static void main(String[] args) {
-        System.out.println(new Solution().solution(5, 5));
-    }
-}
