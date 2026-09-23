@@ -4,23 +4,22 @@ import java.util.*;
 
 class Solution {
     public int[][] solution(int n) {
-        List<int[]> logs = hanoi(n, 1, 3, 2, new ArrayList<>());
+        List<int[]> moves = new ArrayList<>();
 
-        return logs.toArray(new int[logs.size()][]);
+        hanoi(n, 1, 3, 2, moves);
+
+        return moves.toArray(int[][]::new);
     }
 
-    public List<int[]> hanoi(int n, int from, int to, int via, List<int[]> logs) {
-        if (n == 1) {
-            logs.add(new int[]{ from, to });
-            return logs;
+    private void hanoi(int n, int from, int to, int via, List<int[]> moves) {
+        if (n == 0) {
+            return;
         }
 
-        hanoi(n - 1, from, via, to, logs);
+        hanoi(n - 1, from, via, to, moves);
 
-        logs.add(new int[]{ from, to });
+        moves.add(new int[]{from, to});
 
-        hanoi(n - 1, via, to, from, logs);
-
-        return logs;
+        hanoi(n - 1, via, to, from, moves);
     }
 }
